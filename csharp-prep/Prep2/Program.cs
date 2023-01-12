@@ -41,10 +41,5 @@ class Program
     {
       Console.WriteLine("You failed. You can always try again next semester!");
     }
-
-
-
-
-
   }
 }
