@@ -4,14 +4,14 @@ namespace Journaling
 {
 
 
-  class Program
-  {
-    static void Main(string[] args)
+    class Program
     {
-      Journal journal = new Journal();
-      journal.DisplayMenu();
+        static void Main(string[] args)
+        {
+            Journal journal = new Journal();
+            journal.DisplayMenu();
 
 
+        }
     }
-  }
 }

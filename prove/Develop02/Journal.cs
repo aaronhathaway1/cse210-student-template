@@ -6,21 +6,19 @@ namespace Journaling
     {
         public List<Entry> Entries { get; set; }
 
-
-
         public void DisplayMenu()
         {
             Console.WriteLine("Please select on of the following choices");
             Console.WriteLine("1. Write");
             Console.WriteLine("2. Display");
             Console.WriteLine("3. Load");
-            Console.WriteLine("4. Savee");
+            Console.WriteLine("4. Save");
             Console.WriteLine("5. Quit");
 
             int input = int.Parse(Console.ReadLine());
             if (input == 1)
             {
-                Display();
+                Write();
             }
             else if (input == 2) { Console.WriteLine("You chose Display"); }
             else if (input == 3) { Console.WriteLine("You chose Load"); }
@@ -28,7 +26,10 @@ namespace Journaling
             {
                 Save();
             }
-            else if (input == 5) { Console.WriteLine("You chose Quit"); }
+            else if (input == 5)
+            {
+                Quit();
+            }
             else
             {
                 Console.WriteLine("Please use one of the specified inputs");
@@ -39,10 +40,30 @@ namespace Journaling
 
         void Write()
         {
+            // Create a new entry
 
+            Entry entry = new Entry();
+
+            // Record the Date
+            string dateTimeString = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
+            Prompt promptClass = new Prompt();
+            string prompt = promptClass.getPrompt();
+
+
+            Console.WriteLine(dateTimeString);
+
+            // Record the entry
+            string answer = Console.ReadLine();
+            entry.Date = dateTimeString;
+            entry.Prompt = prompt;
+            entry.Answer = answer;
+            string finalizedEntry = entry.Combine();
         }
 
-        void Display()
+
+
+
+        void DisplayEntries()
         {
             Console.WriteLine("Please enter the file name of the journal entries you wish to to display.");
             string filename = Console.ReadLine();
@@ -58,27 +79,31 @@ namespace Journaling
         public void Save()
         {
             //Check for any current entries in memory?
-            try
+            if (this.Entries == null)
             {
-                if (this.Entries.Count > 0)
-                {
-
-                }
+                Console.WriteLine("*******************************");
+                Console.WriteLine("* There are no entries to save.");
+                Console.WriteLine("* Please make an entry.");
+                Console.WriteLine("* Redirecting to the home menu.");
+                Console.WriteLine("*******************************");
             }
-            catch (System.Exception)
+            else
             {
 
-                Console.WriteLine("There are no entries to save \n Please make a new");
+                Console.WriteLine("What would you like the name of the file to be? \nPlease omit the '.txt' at the end.");
 
-
-                Console.WriteLine("What would you like the name of the file to be? \n Please omit the '.txt' at the end.");
-
+                // File name to be saved
                 string fileName = Console.ReadLine();
-                throw;
+
+                // Save the file
+                Console.WriteLine("The file is being saved as " + fileName + ".txt");
+
+                //Implement a try/catch?
+
+                //File has been saved & redirect user to menu
+                Console.WriteLine("The file was saved");
+                Console.WriteLine("Redirecting to the home menu.");
             }
-
-
-
 
             DisplayMenu();
         }
@@ -93,7 +118,7 @@ namespace Journaling
 
             string[] lines = System.IO.File.ReadAllLines(fileName);
 
-            for (int i = 0; i < lines.Length; i += 4)
+            for (int i = 0; i < lines.Length; i++)
             {
                 string[] parts = lines[i].Split("~|~");
 
@@ -104,7 +129,7 @@ namespace Journaling
 
                 // Create an entry from the class
                 Entry newEntry = new Entry();
-                newEntry.EntryNumber = entryNumber;
+                // newEntry.EntryNumber = entryNumber;
                 newEntry.Date = date;
                 newEntry.Prompt = prompt;
                 newEntry.Answer = answer;
