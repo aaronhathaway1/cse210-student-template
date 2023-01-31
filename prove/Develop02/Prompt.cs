@@ -3,49 +3,49 @@ using System.IO;
 
 namespace Journaling
 {
-  class Prompt
-  {
-
-    public string PromptExplicit = "";
-    int userPrompt = 0;
-
-    public string arrangePrompt()
+    class Prompt
     {
-      userPrompt = getPromptNum();
-      if (userPrompt == 1)
-      {
-        PromptExplicit = createPrompt();
-        Console.WriteLine(userPrompt);
-      }
-      else
-      {
-        PromptExplicit = "Opted for no prompt";
-        Console.WriteLine(PromptExplicit);
-      }
 
-      return PromptExplicit;
-    }
+        public string PromptExplicit = "";
+        int userPrompt = 0;
 
-    int getPromptNum()
-    {
-      int promptNum = 0;
+        public string arrangePrompt()
+        {
+            userPrompt = getPromptNum();
+            if (userPrompt == 1)
+            {
+                PromptExplicit = createPrompt();
+                // Console.WriteLine(userPrompt);
+            }
+            else
+            {
+                PromptExplicit = "Opted for no prompt";
 
-      while (promptNum != 1 && promptNum != 2)
-      {
-        Console.WriteLine("Do you want a prompt today?");
-        Console.WriteLine("1. Yes, absolutely.");
-        Console.WriteLine("2. No, thank you.");
-        promptNum = int.Parse(Console.ReadLine());
-      }
+            }
 
-      return promptNum;
-    }
+            return PromptExplicit;
+        }
 
-    string createPrompt()
-    {
-      Random rnd = new Random();
-      int promptIndex = rnd.Next(1, 30);
-      string[] prompts = {
+        int getPromptNum()
+        {
+            int promptNum = 0;
+
+            while (promptNum != 1 && promptNum != 2)
+            {
+                Console.WriteLine("Do you want a prompt today?");
+                Console.WriteLine("1. Yes, absolutely.");
+                Console.WriteLine("2. No, thank you.");
+                promptNum = int.Parse(Console.ReadLine());
+            }
+
+            return promptNum;
+        }
+
+        string createPrompt()
+        {
+            Random rnd = new Random();
+            int promptIndex = rnd.Next(1, 30);
+            string[] prompts = {
 
             "Write about something you are grateful for today.",
             "Reflect on a challenge you faced today and how you overcame it.",
@@ -79,10 +79,10 @@ namespace Journaling
             "Think of a time when you showed humility today.",
         };
 
-      return prompts[promptIndex - 1];
+            return prompts[promptIndex - 1];
+        }
+
+
+
     }
-
-
-
-  }
 }

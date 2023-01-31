@@ -10,12 +10,9 @@ namespace Journaling
         public string Prompt { get; set; }
         public string Answer { get; set; }
 
-
         public string Combine()
         {
-            string entry = "~|~";
-            // entry += EntryNumber;
-            // entry += "~|~";
+            string entry = "";
             entry += Date;
             entry += "~|~";
             entry += Prompt;
