@@ -10,20 +10,20 @@ namespace MemorizingScripture
         //https://github.com/bcbooks/scriptures-json        
 
 
-        static async Task Main(string[] args)
-        {
-            HttpClient client = new HttpClient();
-            var response = await client.GetAsync("https://jsonplaceholder.typicode.com/posts");
-            if (response.IsSuccessStatusCode)
-            {
-                var result = await response.Content.ReadAsStringAsync();
-                Console.WriteLine(result);
-            }
-            else
-            {
-                Console.WriteLine("Request was unsuccessful");
-            }
-        }
+        // static async Task Main(string[] args)
+        // {
+        //     HttpClient client = new HttpClient();
+        //     var response = await client.GetAsync("https://jsonplaceholder.typicode.com/posts");
+        //     if (response.IsSuccessStatusCode)
+        //     {
+        //         var result = await response.Content.ReadAsStringAsync();
+        //         Console.WriteLine(result);
+        //     }
+        //     else
+        //     {
+        //         Console.WriteLine("Request was unsuccessful");
+        //     }
+        // }
 
 
     }
