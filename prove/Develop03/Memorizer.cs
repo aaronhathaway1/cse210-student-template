@@ -30,14 +30,14 @@ namespace MemorizingScripture
         // Constructor
         public Memorizer()
         {
-            _scripture = getScripture();
+            // _scripture = getScripture();
         }
 
-        //Please choose a book to study
+        // Please choose a book to study
 
-        //Please choose from the following
+        // Please choose from the following
 
-        //Please choose a chapter
+        // Please choose a chapter
 
         //Which of the verses from Chapter of Book would you like to memorize?
         //There are a total of x verses in this chapter.
@@ -51,7 +51,7 @@ namespace MemorizingScripture
             //Allow the user to input how many, or
             // Have the option to pick randomly for them.
 
-            Console.WriteLine();
+            Console.WriteLine("test");
             Console.WriteLine();
             Console.ReadLine();
             Console.ReadLine();
