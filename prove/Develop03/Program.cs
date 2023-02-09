@@ -9,6 +9,19 @@ namespace MemorizingScripture
     {
         static void Main(string[] args)
         {
+
+
+            // Are we using the default scripture
+            Console.WriteLine("Are you using the default verse, or would you like to enter your own?");
+            Console.WriteLine("1. Yes, I would like to use the default verse.");
+            Console.WriteLine("2. No, I have my own verse(s).");
+            int answer = int.Parse(Console.ReadLine());
+            bool usingDefaultVerse(int answer) => answer == 1 ? true : false;
+
+            Scripture scripture = new Scripture(usingDefaultVerse(answer));
+
+            //Maybe rewrite all of this so it's a scripture initializer
+            //Then main passes information, the Verse and reference 
             int numVerses;
 
             string book;
@@ -17,62 +30,58 @@ namespace MemorizingScripture
             string verse;
             List<string> verses = new List<string>();
 
-            Console.WriteLine("How many verses are you studying?");
-            numVerses = int.Parse(Console.ReadLine());
-            Console.WriteLine($"The the number of verses is {numVerses}");
 
-            Console.WriteLine("What is the book?");
-            book = Console.ReadLine();
-            Console.WriteLine($"The book is {book}");
 
-            Console.WriteLine("What is the chapter?");
-            chapter = int.Parse(Console.ReadLine());
-            Console.WriteLine($"The chapter is {chapter}");
+            // Console.WriteLine("How many verses are you studying?");
+            // numVerses = int.Parse(Console.ReadLine());
+            // Console.WriteLine($"The the number of verses is {numVerses}");
 
-            if (numVerses < 1)
-            {
-                Console.WriteLine("What is the verse?");
-                verse = Console.ReadLine();
-                Console.WriteLine(verse);
-            }
-            else
-            {
-                Console.WriteLine("What is the starting verse number");
-                startVerse = int.Parse(Console.ReadLine());
-                Console.WriteLine($"The starting verse number is {startVerse}");
+            // Console.WriteLine("What is the book?");
+            // book = Console.ReadLine();
+            // Console.WriteLine($"The book is {book}");
 
-                Console.WriteLine("Enter each verse (Do not include the number) and press enter");
-                Console.WriteLine("When you're done type 'quit'");
+            // if (numVerses < 1)
+            // {
+            //     Console.WriteLine("What is the verse?");
+            //     verse = Console.ReadLine();
+            //     Console.WriteLine(verse);
+            // }
+            // else
+            // {
+            //     Console.WriteLine("What is the starting verse number");
+            //     startVerse = int.Parse(Console.ReadLine());
+            //     Console.WriteLine($"The starting verse number is {startVerse}");
 
-                bool addingVerses = true;
-                while (addingVerses)
-                {
-                    string answer = Console.ReadLine();
+            //     Console.WriteLine("Enter each verse (Do not include the number) and press enter");
+            //     Console.WriteLine("When you're done type 'quit'");
 
-                    if (answer != "quit")
-                    {
-                        verses.Add(answer);
-                    }
-                    else
-                    {
-                        addingVerses = false;
-                    }
-                }
-            }
+            //     bool addingVerses = true;
+            //     while (addingVerses)
+            //     {
+            //         string answer = Console.ReadLine();
 
-            Console.WriteLine(string.Join(Environment.NewLine, verses));
+            //         if (answer != "quit")
+            //         {
+            //             verses.Add(answer);
+            //         }
+            //         else
+            //         {
+            //             addingVerses = false;
+            //         }
+            //     }
+            // }
 
-            Console.WriteLine("Scripture Memorizer");
-            Memorizer memorizer = new Memorizer();
-            // Scripture scripture = new Scripture();  // Instantiate in the if/else
-            // Reference reference = new Reference();
+            // Console.WriteLine(string.Join(Environment.NewLine, verses));
 
-            memorizer.Begin();
+            // // Reference reference = new Reference();
+            // // Scripture scripture = new Scripture();  // Instantiate in the if/else
+            // Console.WriteLine("Scripture Memorizer");
+            // Memorizer memorizer = new Memorizer();
+
+            // memorizer.Begin();
         }
     }
 }
-
-
 
 // Press enter to continue or type 'quit' to finish:
 
