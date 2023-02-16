@@ -2,20 +2,17 @@ using System;
 
 namespace MemorizingScripture
 {
+  class Reference
+  {
+    string _book;
+    int _chapter;
+    int _verse;
+    int[] _verses;
 
-    class Reference
+    public Reference(string book, int chapter, int verse)
     {
-        string _book;
-        int _chapter;
-        int _verse;
-        int[] _verses;
-
-
-        public Reference(string book, int chapter, int verse)
-        {
-            _book = book;
-            _chapter = chapter;
-            //Need to account for if someone wants to have multiple verses or just one
-        }
+      _book = book;
+      _chapter = chapter;
     }
+  }
 }
