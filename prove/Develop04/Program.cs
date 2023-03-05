@@ -1,9 +1,37 @@
 using System;
 
-class Program
+namespace Mindfulness
 {
+
+  class Program
+  {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop04 World!");
+
+      Menu menu = new Menu();
+
+      int answer = 0;
+
+      while (answer != 4)
+      {
+        answer = int.Parse(menu.presentChoices());
+        switch (answer)
+        {
+          case 1:
+
+            BreathingActivity breathingActivity = new BreathingActivity(answer);
+            break;
+          case 2:
+            ReflectionActivity reflectionActivity = new ReflectionActivity(answer);
+
+            break;
+          case 3:
+            ListingActivity listingActivity = new ListingActivity(answer);
+
+            break;
+
+        }
+      }
     }
+  }
 }
