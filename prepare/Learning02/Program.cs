@@ -7,6 +7,7 @@ namespace Learning02
   {
     static void Main(string[] args)
     {
+      //Abstraction
       Job job1 = new Job();
       job1._company = "Microsoft";
       job1._jobTitle = "Software Engineer";

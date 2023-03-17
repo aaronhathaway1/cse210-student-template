@@ -8,6 +8,7 @@ namespace Inheritance
   {
     static void Main(string[] args)
     {
+      //Inheritance
       Assignment assignment = new Assignment("Samuel Bennet", "Multiplication");
       Console.WriteLine(assignment.GetSummary());
 
