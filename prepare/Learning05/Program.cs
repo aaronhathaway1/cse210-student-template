@@ -9,13 +9,30 @@ namespace Shapes
     static void Main(string[] args)
     {
       //Polymorphism
-      Console.WriteLine("Hello Learning05 World!");
+      // Console.WriteLine("Hello Learning05 World!");
 
       Square square = new Square("Red", 3);
-      Console.WriteLine();
+      // Console.WriteLine(square.getColor());
+      // Console.WriteLine(square.getArea());
 
-      // In VS code I want to create a shortcut so that when I type "cl" then"Console.WritleLine():" Appears as the first suggestions and when i press tab the code completes and the cursor is in between the parathenses.
+      Rectangle rectangle = new Rectangle("Blue", 12, 10);
+      // Console.WriteLine(rectangle.getColor());
+      // Console.WriteLine(rectangle.getArea());
 
+      Circle circle = new Circle("Yellow", 20);
+      // Console.WriteLine(circle.getColor());
+      // Console.WriteLine(circle.getArea());
+
+      List<Shape> shapes = new List<Shape>();
+      shapes.Add(square);
+      shapes.Add(rectangle);
+      shapes.Add(circle);
+      shapes.ForEach(shape =>
+      {
+        Console.WriteLine(shape.getArea());
+        Console.WriteLine(shape.getColor());
+      }
+      );
     }
   }
 }

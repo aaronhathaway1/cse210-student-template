@@ -34,15 +34,12 @@ namespace Mindfulness
 
     public ReflectionActivity(int activityType) : base(activityType)
     {
-
       displayActivityInstructions(_activityDescription);
       _time = getTime();
       displayGetReady();
       displaySpinner(5);
       displayPrompt();
       displayFinishMessage();
-
-
     }
 
 

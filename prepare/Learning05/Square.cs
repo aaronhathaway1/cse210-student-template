@@ -12,7 +12,7 @@ namespace Shapes
 
     public Square(string color, double side) : base(color)
     {
-
+      setSide(side);
     }
     public double getSide()
     {
